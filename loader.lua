@@ -1,11 +1,11 @@
--- Rayfield UI (STABLE)
+-- Rayfield UI
 local Rayfield = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
 
 -- Window
 local Window = Rayfield:CreateWindow({
    Name = "Voytex Script",
    LoadingTitle = "Voytex",
-   LoadingSubtitle = "Rayfield UI",
+   LoadingSubtitle = "Rayfield Edition",
    ConfigurationSaving = {
       Enabled = true,
       FolderName = "Voytex",
@@ -17,19 +17,16 @@ local Window = Rayfield:CreateWindow({
    KeySystem = false
 })
 
--- Tab
+-- Tabs
 local MainTab = Window:CreateTab("Main", 4483362458)
 local PlayerTab = Window:CreateTab("Player", 4483362458)
+local InfoTab = Window:CreateTab("Info", 4483362458)
+local UpdateTab = Window:CreateTab("Update Log", 4483362458)
 
--- Section
-local MainSection = MainTab:CreateSection("Main Feature")
-
--- Button
-Rayfield:Notify({
-   Title = "Voytex",
-   Content = "Rayfield UI Loaded!",
-   Duration = 5
-})
+-- =====================
+-- MAIN TAB
+-- =====================
+MainTab:CreateSection("Main Feature")
 
 MainTab:CreateButton({
    Name = "Test Button",
@@ -42,7 +39,6 @@ MainTab:CreateButton({
    end
 })
 
--- WalkSpeed Toggle
 MainTab:CreateToggle({
    Name = "WalkSpeed",
    CurrentValue = false,
@@ -56,7 +52,6 @@ MainTab:CreateToggle({
    end
 })
 
--- Speed Slider
 MainTab:CreateSlider({
    Name = "Set Speed",
    Range = {16, 200},
@@ -67,10 +62,45 @@ MainTab:CreateSlider({
    end
 })
 
--- Player
+-- =====================
+-- PLAYER TAB
+-- =====================
+PlayerTab:CreateSection("Player")
+
 PlayerTab:CreateButton({
    Name = "Reset Character",
    Callback = function()
       game.Players.LocalPlayer.Character:BreakJoints()
    end
+})
+
+-- =====================
+-- INFO TAB
+-- =====================
+InfoTab:CreateSection("Script Information")
+
+InfoTab:CreateLabel("📌 Script Name : Voytex Script")
+InfoTab:CreateLabel("👑 Developer   : Vortex Community")
+InfoTab:CreateLabel("🧩 UI Library  : Rayfield")
+InfoTab:CreateLabel("📦 Version     : v1.0.0")
+InfoTab:CreateLabel("🔄 Status      : Stable")
+
+-- =====================
+-- UPDATE LOG TAB
+-- =====================
+UpdateTab:CreateSection("Changelog")
+
+UpdateTab:CreateLabel("📦 v1.0.0 - Initial Release")
+UpdateTab:CreateLabel("• Rayfield UI")
+UpdateTab:CreateLabel("• WalkSpeed Toggle")
+UpdateTab:CreateLabel("• Speed Slider")
+UpdateTab:CreateLabel("• Player Reset")
+UpdateTab:CreateLabel("• Info Tab")
+UpdateTab:CreateLabel("• Update Log Tab")
+
+-- Notify on load
+Rayfield:Notify({
+   Title = "Voytex",
+   Content = "Script Loaded Successfully",
+   Duration = 5
 })
