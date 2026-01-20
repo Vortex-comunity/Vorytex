@@ -11,17 +11,16 @@ local Window = Rayfield:CreateWindow({
       FolderName = "Voytex",
       FileName = "VoytexConfig"
    },
-   Discord = {
-      Enabled = false
-   },
+   Discord = { Enabled = false },
    KeySystem = false
 })
 
 -- Tabs
-local MainTab = Window:CreateTab("Main", 4483362458)
-local PlayerTab = Window:CreateTab("Player", 4483362458)
-local InfoTab = Window:CreateTab("Info", 4483362458)
-local UpdateTab = Window:CreateTab("Update Log", 4483362458)
+local MainTab    = Window:CreateTab("Main", 4483362458)
+local PlayerTab  = Window:CreateTab("Player", 4483362458)
+local TsunamiTab = Window:CreateTab("Tsunami", 4483362458)
+local InfoTab    = Window:CreateTab("Info", 4483362458)
+local UpdateTab  = Window:CreateTab("Update Log", 4483362458)
 
 -- =====================
 -- MAIN TAB
@@ -44,11 +43,7 @@ MainTab:CreateToggle({
    CurrentValue = false,
    Callback = function(state)
       local hum = game.Players.LocalPlayer.Character:WaitForChild("Humanoid")
-      if state then
-         hum.WalkSpeed = 50
-      else
-         hum.WalkSpeed = 16
-      end
+      hum.WalkSpeed = state and 50 or 16
    end
 })
 
@@ -75,6 +70,20 @@ PlayerTab:CreateButton({
 })
 
 -- =====================
+-- TSUNAMI TAB
+-- =====================
+TsunamiTab:CreateSection("Tsunami Script")
+
+TsunamiTab:CreateButton({
+   Name = "Execute Tsunami Script",
+   Callback = function()
+      loadstring(game:HttpGet(
+         "https://raw.githubusercontent.com/gumanba/Scripts/main/EscapeTsunamiForBrainrots"
+      ))()
+   end
+})
+
+-- =====================
 -- INFO TAB
 -- =====================
 InfoTab:CreateSection("Script Information")
@@ -82,7 +91,7 @@ InfoTab:CreateSection("Script Information")
 InfoTab:CreateLabel("📌 Script Name : Voytex Script")
 InfoTab:CreateLabel("👑 Developer   : Vortex Community")
 InfoTab:CreateLabel("🧩 UI Library  : Rayfield")
-InfoTab:CreateLabel("📦 Version     : v1.0.0")
+InfoTab:CreateLabel("📦 Version     : v1.1.0")
 InfoTab:CreateLabel("🔄 Status      : Stable")
 
 -- =====================
@@ -90,10 +99,15 @@ InfoTab:CreateLabel("🔄 Status      : Stable")
 -- =====================
 UpdateTab:CreateSection("Changelog")
 
-UpdateTab:CreateLabel("📦 v1.0.0 - Initial Release")
+UpdateTab:CreateLabel("📦 v1.1.0")
+UpdateTab:CreateLabel("• Added Tsunami Tab")
+UpdateTab:CreateLabel("• Added Tsunami Script Loader")
+
+UpdateTab:CreateSection("Previous")
+
+UpdateTab:CreateLabel("📦 v1.0.0")
 UpdateTab:CreateLabel("• Rayfield UI")
-UpdateTab:CreateLabel("• WalkSpeed Toggle")
-UpdateTab:CreateLabel("• Speed Slider")
+UpdateTab:CreateLabel("• WalkSpeed Toggle & Slider")
 UpdateTab:CreateLabel("• Player Reset")
 UpdateTab:CreateLabel("• Info Tab")
 UpdateTab:CreateLabel("• Update Log Tab")
