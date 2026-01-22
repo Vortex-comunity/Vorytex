@@ -1,7 +1,5 @@
--- Rayfield UI
 local Rayfield = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
 
--- Window
 local Window = Rayfield:CreateWindow({
    Name = "Voytex Script",
    LoadingTitle = "Voytex",
@@ -19,6 +17,8 @@ local Window = Rayfield:CreateWindow({
 local MainTab    = Window:CreateTab("Main", 4483362458)
 local PlayerTab  = Window:CreateTab("Player", 4483362458)
 local TsunamiTab = Window:CreateTab("Tsunami", 4483362458)
+local StatusTab  = Window:CreateTab("Status", 4483362458)
+local CreditsTab = Window:CreateTab("Credits", 4483362458)
 local InfoTab    = Window:CreateTab("Info", 4483362458)
 local UpdateTab  = Window:CreateTab("Update Log", 4483362458)
 
@@ -77,11 +77,32 @@ TsunamiTab:CreateSection("Tsunami Script")
 TsunamiTab:CreateButton({
    Name = "Execute Tsunami Script",
    Callback = function()
-      loadstring(game:HttpGet(
-         "https://raw.githubusercontent.com/gumanba/Scripts/main/EscapeTsunamiForBrainrots"
-      ))()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/main/EscapeTsunamiForBrainrots"))()
    end
 })
+
+-- =====================
+-- STATUS TAB
+-- =====================
+StatusTab:CreateSection("Player / Game Status")
+
+local plr = game.Players.LocalPlayer
+StatusTab:CreateLabel("👤 Player : " .. plr.Name)
+StatusTab:CreateLabel("🆔 UserId : " .. plr.UserId)
+StatusTab:CreateLabel("🎮 PlaceId : " .. game.PlaceId)
+StatusTab:CreateLabel("🌍 JobId : " .. game.JobId)
+StatusTab:CreateLabel("📌 Executor : Unknown")
+
+-- =====================
+-- CREDITS TAB
+-- =====================
+CreditsTab:CreateSection("Credits")
+
+CreditsTab:CreateLabel("👑 Developer : Vortex Community")
+CreditsTab:CreateLabel("🗿 Owner     : Voytex")
+CreditsTab:CreateLabel("🧩 UI        : Rayfield")
+CreditsTab:CreateLabel("📦 Version   : v1.1.0")
+CreditsTab:CreateLabel("⚡ Status    : Stable")
 
 -- =====================
 -- INFO TAB
@@ -99,22 +120,24 @@ InfoTab:CreateLabel("🔄 Status      : Stable")
 -- =====================
 UpdateTab:CreateSection("Changelog")
 
-UpdateTab:CreateLabel("📦 v1.1.0")
+UpdateTab:CreateLabel("🔥 v1.1.0 (Latest)")
 UpdateTab:CreateLabel("• Added Tsunami Tab")
-UpdateTab:CreateLabel("• Added Tsunami Script Loader")
+UpdateTab:CreateLabel("• Added Tsunami Script Execute Button")
+UpdateTab:CreateLabel("• Added Credits Tab")
+UpdateTab:CreateLabel("• Added Status Tab")
+UpdateTab:CreateLabel("• UI Improvements")
 
-UpdateTab:CreateSection("Previous")
+UpdateTab:CreateSection("Old Versions")
 
 UpdateTab:CreateLabel("📦 v1.0.0")
-UpdateTab:CreateLabel("• Rayfield UI")
-UpdateTab:CreateLabel("• WalkSpeed Toggle & Slider")
-UpdateTab:CreateLabel("• Player Reset")
-UpdateTab:CreateLabel("• Info Tab")
-UpdateTab:CreateLabel("• Update Log Tab")
+UpdateTab:CreateLabel("• Added Rayfield UI")
+UpdateTab:CreateLabel("• WalkSpeed Toggle + Slider")
+UpdateTab:CreateLabel("• Reset Character")
+UpdateTab:CreateLabel("• Info Tab + Update Log Tab")
 
--- Notify on load
 Rayfield:Notify({
    Title = "Voytex",
-   Content = "Script Loaded Successfully",
+   Content = "Script Loaded Successfully 🗿",
    Duration = 5
 })
+         
