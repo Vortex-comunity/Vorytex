@@ -1,7 +1,7 @@
 local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
 
 WindUI:AddTheme({
-    Name = "Rey Exploit", 
+    Name = "Fay Exploit", 
     
     Accent = WindUI:Gradient({                                                  
         ["0"] = { Color = Color3.fromHex("#1f1f23"), Transparency = 0 },        
@@ -18,10 +18,10 @@ WindUI:AddTheme({
     Icon = Color3.fromHex("#a1a1aa")
 })
 local Window = WindUI:CreateWindow({
-    Title = "ReyExploit",
+    Title = "FayExploit",
     Icon = "rbxassetid://106899268176689", 
-    Author = "Rey X Mount",
-    Folder = "ReyConfig",
+    Author = "Fay X Mount",
+    Folder = "Fay Config",
     
     Size = UDim2.fromOffset(530, 300),
     MinSize = Vector2.new(320, 300),
@@ -38,14 +38,14 @@ local Window = WindUI:CreateWindow({
 Window:SetToggleKey(Enum.KeyCode.G)
 
 WindUI:Notify({
-    Title = "ReyLoader",
+    Title = "FayLoader",
     Content = "Press G To Open/Close Menu!",
     Duration = 4, 
     Icon = "slack",
 })
 
 Window:EditOpenButton({
-    Title = "VOTYEXCommunity",
+    Title = "FayCommunity",
     Icon = "rbxassetid://106899268176689",
     CornerRadius = UDim.new(0,16),
     StrokeThickness = 2,
@@ -60,7 +60,7 @@ Window:EditOpenButton({
 
 Window:SetIconSize(35) 
 Window:Tag({
-    Title = "Premium",
+    Title = "beta",
     Color = Color3.fromHex("#30ff6a"),
     Radius = 13, -- from 0 to 13
 })
@@ -146,7 +146,7 @@ end
 
 
 copyLink(
-    "https://discord.gg/TzepzgpY", 
+    "https://discord.gg/YagexWWu6", 
     "Copy Discord Link",              
     "Discord Copied!",                 
     "Link berhasil disalin ke clipboard ✅" 
